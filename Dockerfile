@@ -6,5 +6,6 @@ RUN apt -y upgrade
 
 RUN apt -y install curl \
                    bind9-host \
+                   fish \
                    iputils-ping
 
