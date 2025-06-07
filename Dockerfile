@@ -1,3 +1,4 @@
+# simply based on nginx to keep container running
 FROM nginx
 
 RUN apt -y update
