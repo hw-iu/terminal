@@ -8,5 +8,8 @@ RUN apt -y install curl \
                    bind9-host \
                    fish \
                    iproute2 \
-                   iputils-ping
+                   iputils-ping \
+                   mtr-tiny \
+                   telnet \
+                   traceroute
 
