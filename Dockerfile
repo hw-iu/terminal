@@ -10,6 +10,7 @@ RUN apt -y install curl \
                    iproute2 \
                    iputils-ping \
                    mtr-tiny \
+                   postgresql-client-15 \
                    telnet \
                    traceroute
 
