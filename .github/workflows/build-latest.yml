@@ -11,7 +11,7 @@ jobs:
   build-latest:
     runs-on: ubuntu-latest
     permissions:
-      #contents: write
+      contents: write
       id-token: write
 
     steps:
@@ -34,3 +34,4 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         audience: api://AzureADTokenExchange
+        auth-type: ID_TOKEN
