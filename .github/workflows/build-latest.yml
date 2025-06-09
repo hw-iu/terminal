@@ -19,9 +19,11 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    - run: printenv
-    - run: docker build -t ${{ env.cr_image }}:${{ github.ref_name }} .
-    - run: docker tag ${{ env.cr_image }}:${{ github.ref_name }} ${{ env.cr_image }}:latest
+    - run: printenv | sort
+    - run: docker build -t ${{ env.cr_image }}:${{ github.sha }} .
+    - run: docker tag ${{ env.cr_image }}:${{ github.sha }} ${{ env.cr_image }}:${{ github.ref_name }}
+    - run: docker tag ${{ env.cr_image }}:${{ github.sha }} ${{ env.cr_image }}:latest
+    - run: docker push ${{ env.cr_image }}:${{ github.sha }}
     - run: docker push ${{ env.cr_image }}:${{ github.ref_name }}
     - run: docker push ${{ env.cr_image }}:latest
 
@@ -33,4 +35,4 @@ jobs:
           az containerapp update \
           --name online-shop-app \
           --resource-group online-shop \
-          --image ghcr.io/hw-iu/terminal:${{ github.ref_name }}
+          --image ghcr.io/hw-iu/terminal:${{ github.sha }}
