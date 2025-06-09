@@ -12,5 +12,6 @@ RUN apt -y install curl \
                    mtr-tiny \
                    postgresql-client-15 \
                    telnet \
-                   traceroute
+                   traceroute \
+                   vim
 
