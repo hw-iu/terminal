@@ -10,9 +10,6 @@ env:
 jobs:
   build-latest:
     runs-on: ubuntu-latest
-    #permissions:
-    #  contents: write
-    #  id-token: write
 
     steps:
     - uses: actions/checkout@v4
@@ -30,8 +27,8 @@ jobs:
     - name: Azure Login via OIDC
       uses: azure/login@v1
       with:
-        client-id: ${{ secrets.AZURE_APP_ID }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        audience: api://AzureADTokenExchange
-        auth-type: IDENTITY
+
